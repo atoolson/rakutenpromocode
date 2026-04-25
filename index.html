@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YLL3BYYDD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4YLL3BYYDD');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Earn Cash Back When You Shop Online | Andrew's Referral</title>
@@ -689,7 +698,7 @@
       border-radius: var(--radius-pill);
       cursor: pointer;
       transition: background 0.15s, box-shadow 0.15s;
-      margin: 0 0 20px 0;
+      margin: 0;
       width: fit-content;
     }
     .code-copy-btn:hover {
@@ -698,6 +707,11 @@
     }
     .code-copy-btn.copied {
       background: var(--green);
+    }
+    .code-copy-hint {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      margin-bottom: 20px;
     }
 
     .cta-big-btn {
@@ -892,14 +906,17 @@
 <div style="background: linear-gradient(160deg, #f8f3ff 0%, #ede4ff 40%, #f5f0ff 100%);">
   <div class="hero">
     <div class="hero-text">
-      <div class="hero-tag">🎁 Limited-time referral offer</div>
+      <div class="hero-tag">🎁 Special Promotion</div>
       <h1 class="hero-h1">Get <span>$50 cash back</span><br/>on your first purchase</h1>
       <p class="hero-sub">Sign up free with this referral code and earn $50 back after your first qualifying purchase — on top of ongoing cash back at 3,500+ stores.</p>
-      <button class="code-copy-btn" onclick="copyCode('heroCopyBtn', this)">
-        <span class="code-copy-icon">📋</span> ANDREW33956 — Click to Copy
-      </button>
       <div class="hero-cta-row">
-        <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="btn-purple-lg">Claim My $50 →</a>
+        <button class="code-copy-btn" onclick="copyCode(this)">
+          <span class="code-copy-icon">📋</span> ANDREW33956
+        </button>
+        <span class="hero-note">Click to copy code</span>
+      </div>
+      <div class="hero-cta-row">
+        <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="btn-purple-lg" onclick="gtag('event', 'link_clicked', { 'event_category': 'Referral', 'event_label': 'Hero CTA' });">Claim My $50 →</a>
         <span class="hero-note">Free to join. No credit card needed.</span>
       </div>
       <div class="hero-proof">
@@ -966,7 +983,7 @@
   <span class="ref-banner-text">✦ Sign up with referral code</span>
   <span class="ref-code-pill">ANDREW33956</span>
   <span class="ref-banner-text">to unlock your new member bonus</span>
-  <button class="ref-copy-btn" id="refBannerBtn" onclick="copyCode('refBannerBtn', this)">Copy Code</button>
+  <button class="ref-copy-btn" onclick="copyCode(this)">Copy Code</button>
 </div>
 
 <!-- BRANDS SECTION -->
@@ -1037,10 +1054,10 @@
         <div class="cta-code-label">Referral Code</div>
         <div class="cta-code-value">ANDREW33956</div>
       </div>
-      <button class="btn-white" id="ctaCopyBtn" onclick="copyCode('ctaCopyBtn', this)">Copy Code</button>
+      <button class="btn-white" onclick="copyCode(this)">Copy Code</button>
     </div>
 
-    <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="cta-big-btn">
+    <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="cta-big-btn" onclick="gtag('event', 'link_clicked', { 'event_category': 'Referral', 'event_label': 'Bottom CTA' });">
       Claim My $50 →
     </a>
     <p class="cta-small-note">Direct link: rakuten.com/r/ANDREW33956</p>
@@ -1085,7 +1102,7 @@
       <span class="footer-logo-name">Rakuten Special Offer</span>
     </div>
     <div style="display:flex;gap:24px;flex-wrap:wrap;">
-      <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="footer-link">Join with Referral Code</a>
+      <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="footer-link" onclick="gtag('event', 'link_clicked', { 'event_category': 'Referral', 'event_label': 'Footer Link' });">Join with Referral Code</a>
       <a href="#how" class="footer-link">How It Works</a>
       <a href="#faq" class="footer-link">FAQ</a>
     </div>
@@ -1097,20 +1114,39 @@
 </footer>
 
 <script>
-  function copyCode(id, btn) {
-    navigator.clipboard.writeText('ANDREW33956').then(() => {
-      const orig = btn.textContent;
-      if (btn.classList.contains('code-copy-btn')) {
-        btn.textContent = '✓ Copied to clipboard!';
-      } else {
-        btn.textContent = '✓ Copied!';
+  function copyCode(btn) {
+    const code = 'ANDREW33956';
+
+    function onSuccess() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'code_copied', { 'event_category': 'Referral', 'event_label': code });
       }
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = orig;
+        btn.innerHTML = orig;
         btn.classList.remove('copied');
       }, 2200);
-    });
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(onSuccess).catch(() => fallback(code, onSuccess));
+    } else {
+      fallback(code, onSuccess);
+    }
+  }
+
+  function fallback(text, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); cb(); } catch(e) {}
+    document.body.removeChild(ta);
   }
 </script>
 
