@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earn Cash Back When You Shop Online | Andrew's Referral</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:      #6b0acb;
+      --purple-dark: #4a0090;
+      --purple-light:#8a2be2;
+      --purple-pale: #f3eeff;
+      --purple-mid:  #ead5ff;
+      --green:       #00b14f;
+      --green-pale:  #e6f9ee;
+      --white:       #ffffff;
+      --gray-50:     #f9f9fb;
+      --gray-100:    #f0eff5;
+      --gray-200:    #e2e0ea;
+      --gray-400:    #9b97b0;
+      --gray-600:    #5c5875;
+      --gray-900:    #1a1528;
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --radius-pill: 100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--white);
+      color: var(--gray-900);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      height: 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 32px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    /* Original-style "R" logomark, fully original */
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--purple);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .logo-name {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--purple);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: var(--gray-100); color: var(--gray-900); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .btn-outline {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--purple);
+      border: 1.5px solid var(--purple);
+      background: transparent;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover { background: var(--purple-pale); }
+
+    .btn-purple {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: white;
+      background: var(--purple);
+      border: none;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: background 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .btn-purple:hover {
+      background: var(--purple-dark);
+      box-shadow: 0 4px 14px rgba(107,10,203,0.3);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #f8f3ff 0%, #ede4ff 40%, #f5f0ff 100%);
+      padding: 64px 32px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: flex-end;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      padding-bottom: 64px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-pill);
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--purple);
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+    }
+
+    .hero-h1 span {
+      color: var(--purple);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-purple-lg {
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      background: var(--purple);
+      border: none;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: background 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-purple-lg:hover {
+      background: var(--purple-dark);
+      box-shadow: 0 6px 20px rgba(107,10,203,0.35);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+
+    /* Social proof row */
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .proof-stars {
+      font-size: 0.8rem;
+      color: #f5a623;
+      letter-spacing: 1px;
+    }
+
+    .proof-score {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gray-900);
+    }
+
+    .proof-label {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+    }
+
+    .proof-dot {
+      width: 4px; height: 4px;
+      background: var(--gray-200);
+      border-radius: 50%;
+    }
+
+    /* Hero right: phone mockup / cash back card */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 0;
+      position: relative;
+    }
+
+    .phone-card {
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 24px 64px rgba(107,10,203,0.15), 0 4px 16px rgba(0,0,0,0.08);
+      width: 260px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 0;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .phone-top {
+      background: var(--purple);
+      padding: 28px 24px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-top::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .phone-hi {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 4px;
+    }
+
+    .phone-amount {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .phone-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 2px;
+    }
+
+    .phone-body {
+      padding: 20px 24px;
+    }
+
+    .phone-store-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .phone-store-row:last-child { border-bottom: none; }
+
+    .phone-store-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+
+    .phone-store-rate {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* Floating badge */
+    .float-badge {
+      position: absolute;
+      bottom: 80px;
+      right: -24px;
+      background: white;
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: floatBadge 4s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-6px) rotate(-2deg); }
+    }
+
+    .badge-icon { font-size: 1.4rem; }
+    .badge-text { }
+    .badge-top { font-size: 0.72rem; color: var(--gray-400); font-weight: 500; }
+    .badge-bottom { font-size: 0.95rem; font-weight: 800; color: var(--green); }
+
+    /* ── REFERRAL BANNER ── */
+    .ref-banner {
+      background: var(--purple);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .ref-banner-text {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .ref-code-pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-pill);
+      padding: 5px 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .ref-copy-btn {
+      background: white;
+      color: var(--purple);
+      border: none;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .ref-copy-btn:hover { background: var(--purple-pale); }
+    .ref-copy-btn.copied { background: var(--green); color: white; }
+
+    /* ── SECTION SHARED ── */
+    .section { padding: 72px 32px; max-width: 1200px; margin: 0 auto; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--gray-900);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+      color: var(--gray-400);
+    }
+
+    /* ── BRANDS ── */
+    .brands-outer {
+      background: var(--white);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 64px 0;
+    }
+
+    .brands-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .brand-tile {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+      cursor: pointer;
+    }
+    .brand-tile:hover {
+      border-color: var(--purple-light);
+      box-shadow: 0 4px 16px rgba(107,10,203,0.1);
+      transform: translateY(-2px);
+    }
+
+    .brand-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      text-align: center;
+    }
+
+    .brand-rate {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-pale);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      text-align: center;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-outer {
+      background: var(--gray-50);
+      padding: 72px 32px;
+    }
+
+    .how-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple-mid), var(--purple-mid));
+      z-index: 0;
+    }
+
+    .how-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(107,10,203,0.25);
+    }
+
+    .how-step h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--gray-900);
+    }
+
+    .how-step p {
+      font-size: 0.85rem;
+      color: var(--gray-400);
+      line-height: 1.6;
+    }
+
+    /* ── REFERRAL CTA ── */
+    .cta-outer {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+      padding: 80px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-outer::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .cta-outer::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .cta-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .cta-inner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    .cta-code-box {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-lg);
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-code-left { text-align: left; }
+
+    .cta-code-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .cta-code-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 3px;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--purple);
+      border: none;
+      padding: 11px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .btn-white:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+    .btn-white.copied { background: var(--green); color: white; }
+
+    .code-copy-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--purple);
+      border: none;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.15s;
+      margin: 0 0 20px 0;
+      width: fit-content;
+    }
+    .code-copy-btn:hover {
+      background: var(--purple-dark);
+      box-shadow: 0 4px 14px rgba(107,10,203,0.3);
+    }
+    .code-copy-btn.copied {
+      background: var(--green);
+    }
+
+    .cta-big-btn {
+      display: block;
+      background: white;
+      color: var(--purple);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: box-shadow 0.15s, transform 0.15s;
+      margin: 0 auto;
+      width: fit-content;
+    }
+    .cta-big-btn:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(-1px);
+    }
+
+    .cta-small-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 16px;
+    }
+
+    /* ── FAQ ── */
+    .faq-outer {
+      background: var(--white);
+      padding: 72px 32px;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .faq-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    details {
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    summary {
+      padding: 20px 4px;
+      font-weight: 600;
+      font-size: 0.97rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--gray-900);
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      color: var(--purple);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 4px 20px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-900);
+      color: rgba(255,255,255,0.5);
+      padding: 40px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-logo-mark {
+      width: 28px; height: 28px;
+      background: var(--purple);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    .footer-logo-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: white;
+    }
+
+    .footer-link {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-disclaimer {
+      max-width: 1200px;
+      margin: 24px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.7;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text > * {
+      opacity: 0;
+      animation: fadeUp 0.55s ease forwards;
+    }
+    .hero-text > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-text > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero-text > *:nth-child(3) { animation-delay: 0.25s; }
+    .hero-text > *:nth-child(4) { animation-delay: 0.35s; }
+    .hero-text > *:nth-child(5) { animation-delay: 0.45s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-bottom: 48px; }
+      .hero-visual { justify-content: flex-start; }
+      .float-badge { right: 16px; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+      .how-steps::before { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .nav-right { display: none; }
+      .hero { padding: 40px 16px 0; }
+      .section { padding: 48px 16px; }
+      .brands-inner { padding: 0 16px; }
+      .how-outer, .cta-outer, .faq-outer { padding: 48px 16px; }
+      footer { padding: 32px 16px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .how-steps { grid-template-columns: 1fr; }
+      .cta-code-box { flex-direction: column; text-align: center; }
+      .cta-code-left { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">R</div>
+      <span class="logo-name">Rakuten Special Offer</span>
+    </a>
+    <div class="nav-links">
+      <a href="#stores" class="nav-link">Top Stores</a>
+      <a href="#how" class="nav-link">How It Works</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="background: linear-gradient(160deg, #f8f3ff 0%, #ede4ff 40%, #f5f0ff 100%);">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-tag">🎁 Limited-time referral offer</div>
+      <h1 class="hero-h1">Get <span>$50 cash back</span><br/>on your first purchase</h1>
+      <p class="hero-sub">Sign up free with this referral code and earn $50 back after your first qualifying purchase — on top of ongoing cash back at 3,500+ stores.</p>
+      <button class="code-copy-btn" onclick="copyCode('heroCopyBtn', this)">
+        <span class="code-copy-icon">📋</span> ANDREW33956 — Click to Copy
+      </button>
+      <div class="hero-cta-row">
+        <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="btn-purple-lg">Claim My $50 →</a>
+        <span class="hero-note">Free to join. No credit card needed.</span>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <span class="proof-stars">★★★★★</span>
+          <span class="proof-score">4.8</span>
+          <span class="proof-label">App Store</span>
+        </div>
+        <div class="proof-dot"></div>
+        <div class="proof-item">
+          <span class="proof-stars">★★★★★</span>
+          <span class="proof-score">4.9</span>
+          <span class="proof-label">Chrome Store</span>
+        </div>
+        <div class="proof-dot"></div>
+        <div class="proof-item">
+          <span class="proof-score">37k+</span>
+          <span class="proof-label">reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div style="position: relative; padding: 20px 40px 0 20px;">
+        <div class="phone-card">
+          <div class="phone-top">
+            <div class="phone-hi">Welcome bonus + Cash Back</div>
+            <div class="phone-amount">$50.00</div>
+            <div class="phone-label">Yours after first purchase</div>
+          </div>
+          <div class="phone-body">
+            <div class="phone-store-row">
+              <span class="phone-store-name">Apple</span>
+              <span class="phone-store-rate">12% back</span>
+            </div>
+            <div class="phone-store-row">
+              <span class="phone-store-name">Target</span>
+              <span class="phone-store-rate">11% back</span>
+            </div>
+            <div class="phone-store-row">
+              <span class="phone-store-name">Sephora</span>
+              <span class="phone-store-rate">12% back</span>
+            </div>
+            <div class="phone-store-row">
+              <span class="phone-store-name">Best Buy</span>
+              <span class="phone-store-rate">Up to 16%</span>
+            </div>
+          </div>
+        </div>
+        <div class="float-badge">
+          <span class="badge-icon">💸</span>
+          <div class="badge-text">
+            <div class="badge-top">Just earned</div>
+            <div class="badge-bottom">+$12.48</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REFERRAL BANNER -->
+<div class="ref-banner">
+  <span class="ref-banner-text">✦ Sign up with referral code</span>
+  <span class="ref-code-pill">ANDREW33956</span>
+  <span class="ref-banner-text">to unlock your new member bonus</span>
+  <button class="ref-copy-btn" id="refBannerBtn" onclick="copyCode('refBannerBtn', this)">Copy Code</button>
+</div>
+
+<!-- BRANDS SECTION -->
+<div class="brands-outer" id="stores">
+  <div class="brands-inner">
+    <div class="section-header">
+      <h2>All your favorite brands.</h2>
+      <p>3,500+ stores with new Cash Back rates every day.</p>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-tile"><div class="brand-icon" style="background:#555">🍎</div><div class="brand-name">Apple</div><div class="brand-rate">12% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#e47911">📦</div><div class="brand-name">Amazon</div><div class="brand-rate">$5 Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#cc0000">🎯</div><div class="brand-name">Target</div><div class="brand-rate">11% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#0057a8">🛒</div><div class="brand-name">Best Buy</div><div class="brand-rate">Up to 16%</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#d4006a">💋</div><div class="brand-name">Sephora</div><div class="brand-rate">12% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#1a1a1a">⭐</div><div class="brand-name">Macy's</div><div class="brand-rate">Up to 20%</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#007dc6">🐾</div><div class="brand-name">Chewy</div><div class="brand-rate">12% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#004990">👟</div><div class="brand-name">Old Navy</div><div class="brand-rate">14% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#f08c00">💄</div><div class="brand-name">Ulta Beauty</div><div class="brand-rate">12% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#004831">🌿</div><div class="brand-name">Kohl's</div><div class="brand-rate">12% Cash Back</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#004990">🔨</div><div class="brand-name">Lowe's</div><div class="brand-rate">Up to 14%</div></div>
+      <div class="brand-tile"><div class="brand-icon" style="background:#c41230">💊</div><div class="brand-name">CVS</div><div class="brand-rate">15% Cash Back</div></div>
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--gray-400);">…and 3,488 more stores</p>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-outer" id="how">
+  <div class="how-inner">
+    <div class="section-header">
+      <h2>How Cash Back works</h2>
+      <p>It takes 2 minutes to start earning real money every time you shop.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>Join Free</h3>
+        <p>Sign up using this referral link in seconds. No credit card needed.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>Find Your Store</h3>
+        <p>Search for the store you want to shop at and click through from the portal.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>Shop Normally</h3>
+        <p>Buy exactly what you want. Cash Back is automatically tracked.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h3>Get Paid</h3>
+        <p>Receive your Cash Back via PayPal or check — real money, not points.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-outer" id="refer">
+  <div class="cta-inner">
+    <h2>Claim your $50 welcome bonus</h2>
+    <p>Use this referral code when you sign up and get $50 cash back after your first qualifying purchase. Plus, keep earning at 3,500+ stores every time you shop.</p>
+
+    <div class="cta-code-box">
+      <div class="cta-code-left">
+        <div class="cta-code-label">Referral Code</div>
+        <div class="cta-code-value">ANDREW33956</div>
+      </div>
+      <button class="btn-white" id="ctaCopyBtn" onclick="copyCode('ctaCopyBtn', this)">Copy Code</button>
+    </div>
+
+    <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="cta-big-btn">
+      Claim My $50 →
+    </a>
+    <p class="cta-small-note">Direct link: rakuten.com/r/ANDREW33956</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-outer" id="faq">
+  <div class="faq-inner">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <details open>
+      <summary>Is Cash Back actually free?</summary>
+      <div class="faq-answer">Yes — completely free, no hidden fees or subscriptions. The platform earns a small commission from retailers for driving sales, and passes a portion of that back to you.</div>
+    </details>
+    <details>
+      <summary>How do I receive my Cash Back?</summary>
+      <div class="faq-answer">Once your Cash Back is confirmed (usually after any return window), you receive real money via PayPal or a mailed check. No converting points — just money deposited quarterly.</div>
+    </details>
+    <details>
+      <summary>Can I still use coupon codes and credit card rewards?</summary>
+      <div class="faq-answer">Yes! Cash Back stacks on top of promo codes, sale prices, and most credit card rewards programs. You can often earn savings in three ways at once.</div>
+    </details>
+    <details>
+      <summary>Why use a referral code instead of signing up directly?</summary>
+      <div class="faq-answer">Signing up through this referral link unlocks a new member bonus after your first qualifying purchase — something that isn't available when signing up directly.</div>
+    </details>
+    <details>
+      <summary>How do I make sure I don't forget to activate Cash Back?</summary>
+      <div class="faq-answer">Install the free browser extension — it automatically detects when you're visiting an eligible store and activates your Cash Back without any extra steps.</div>
+    </details>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-row">
+      <div class="footer-logo-mark">R</div>
+      <span class="footer-logo-name">Rakuten Special Offer</span>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a href="https://www.rakuten.com/r/ANDREW33956?eeid=28187" target="_blank" rel="noopener" class="footer-link">Join with Referral Code</a>
+      <a href="#how" class="footer-link">How It Works</a>
+      <a href="#faq" class="footer-link">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    This is an independent personal referral page. Referral code: ANDREW33956 · Direct referral link: rakuten.com/r/ANDREW33956<br />
+    This page is not affiliated with, endorsed by, or sponsored by Rakuten or any of its subsidiaries. Cash Back rates shown are approximate and subject to change. See the official program terms for full details.
+  </div>
+</footer>
+
+<script>
+  function copyCode(id, btn) {
+    navigator.clipboard.writeText('ANDREW33956').then(() => {
+      const orig = btn.textContent;
+      if (btn.classList.contains('code-copy-btn')) {
+        btn.textContent = '✓ Copied to clipboard!';
+      } else {
+        btn.textContent = '✓ Copied!';
+      }
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 2200);
+    });
+  }
+</script>
+
+</body>
+</html>
